@@ -40,7 +40,7 @@
 - name: Add user multiple
   ansible.builtin.user: "name={{ item }} shell=/bin/bash"
   with_items:
-	- apple
-	- banana
+          - apple
+          - banana
 #    name: james
 #    shell: /bin/bash
