@@ -1,0 +1,21 @@
+---
+# tasks file for common
+- name: Backup ssh config
+  copy:
+          src: "/etc/ssh/sshd_config"
+          dest: "/etc/ssh/sshd_config.orig"
+- name: Modify ssh port
+  lineinfile:
+          dest: "/etc/ssh/sshd_config"
+          regexp: "^Port"
+          line: "Port 6522"
+  notify: restart sshd
+
+- name: install multiple packages
+  apt: "name={{ item }} state=latest update_cache=yes"
+  with_items:
+          - wget
+          - unzip
+          - curl
+          - git
+          - jq

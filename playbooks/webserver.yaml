@@ -1,0 +1,6 @@
+---
+- hosts: fe
+  become: yes
+  roles:
+          - common
+          - skillup-fe 
