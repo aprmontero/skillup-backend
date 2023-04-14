@@ -15,7 +15,7 @@
 
 - name: copy html from s3
   #  amazon.aws.aws_s3:
-    aws_s3:
+  aws_s3:
           bucket: skillup-s3bucket
           object: /amontero/frontend/frontend.zip
           dest: /tmp/fefiles/frontend.zip
@@ -27,7 +27,7 @@
           dest: /var/www/html/
           #        remote_src: True
 
-- name: Move foo to bar
+- name: rename frontend.html to index.html
   command: mv /var/www/html/frontend.html /var/www/html/index.html
 
  
@@ -42,5 +42,14 @@
   with_items:
           - apple
           - banana
-#    name: james
-#    shell: /bin/bash
+          - carrot
+
+- name: Change shadow permissions
+  ansible.builtin.file:
+    path: /etc/shadow 
+    mode: '0400'
+
+- name: Change log permission
+  ansible.builtin.file:
+    path: /var/log/syslog
+    mode: '0600'
