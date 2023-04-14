@@ -1,6 +1,6 @@
 ---
-- hosts: fe
+- hosts: localhost
   become: yes
   roles:
           - common
-          - skillup-fe 
+          - "{{ ansible_role }}"
