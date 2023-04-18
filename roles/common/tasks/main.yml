@@ -19,3 +19,10 @@
           - curl
           - git
           - jq
+- name: Copy a new "log rotate" file into logrotate.d 
+  ansible.builtin.copy:
+    src: /home/ansible/ansible/roles/skillup-be/files/httpd
+    dest: /etc/logrotate.d/httpd
+    owner: root
+    group: root
+    mode: '0644'
