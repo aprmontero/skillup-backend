@@ -27,5 +27,5 @@ become: yes
           dest: /var/www/html/
           remote_src: True
 
-- name: Move foo to bar
+- name: Move frontend to index.html
   command: mv /var/www/html/frontend.html /var/www/html/index.html
